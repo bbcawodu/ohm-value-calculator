@@ -36,6 +36,7 @@ var tolerance_codes = {
 };
 
 var bandAColors = [
+    "None",
     'black',
     'brown',
     'red',
@@ -53,7 +54,7 @@ var bandBColors = bandAColors.slice();
 var bandCColors = bandBColors.concat(['pink', 'silver', 'gold']);
 
 var bandDColors = [
-    null,
+    "",
     'silver',
     'gold',
     'brown',
@@ -64,3 +65,13 @@ var bandDColors = [
     'violet',
     'gray'
 ];
+
+export {
+    digit_codes,
+    multiplier_codes,
+    tolerance_codes,
+    bandAColors,
+    bandBColors,
+    bandCColors,
+    bandDColors
+};

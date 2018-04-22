@@ -1,35 +1,6 @@
 import OhmValueCalculator from './OhmCalculatorClass';
-
-
-let bandAColors = [
-    'black',
-    'brown',
-    'red',
-    'orange',
-    'yellow',
-    'green',
-    'blue',
-    'violet',
-    'gray',
-    'white'
-];
-
-let bandBColors = bandAColors.slice();
-
-let bandCColors = bandBColors.concat(['pink', 'silver', 'gold']);
-
-let bandDColors = [
-    null,
-    'silver',
-    'gold',
-    'brown',
-    'red',
-    'yellow',
-    'green',
-    'blue',
-    'violet',
-    'gray'
-];
+import React from 'react';
+import {bandAColors, bandBColors, bandCColors, bandDColors} from './constants';
 
 
 let invalidColors = [
@@ -52,11 +23,12 @@ describe('OhmValueCalculator class tests.', () => {
     describe('Constructor tests.', () => {
         it('Test constructor with a bandAColor of all possible valid values.', () => {
             bandAColors.forEach(function(color) {
-                let oCalculator = new OhmValueCalculator(color);
-                expect(oCalculator.bandAColor).toBe(color);
+                if (color !== "None") {
+                    let oCalculator = new OhmValueCalculator(color);
+                    expect(oCalculator.bandAColor).toBe(color);
+                }
             });
         });
-
         it('Test throw exception on constructor with invalid bandAColors.', () => {
             invalidColors.forEach(function(color) {
                 expect(
@@ -73,11 +45,12 @@ describe('OhmValueCalculator class tests.', () => {
 
         it('Test constructor with a bandBColor of all possible valid values.', () => {
             bandBColors.forEach(function(color) {
-                let oCalculator = new OhmValueCalculator(undefined, color);
-                expect(oCalculator.bandBColor).toBe(color);
+                if (color !== "None") {
+                    let oCalculator = new OhmValueCalculator(undefined, color);
+                    expect(oCalculator.bandBColor).toBe(color);
+                }
             });
         });
-
         it('Test throw exception on constructor with invalid bandBColors.', () => {
             invalidColors.forEach(function(color) {
                 expect(
@@ -94,11 +67,12 @@ describe('OhmValueCalculator class tests.', () => {
 
         it('Test constructor with a bandCColor of all possible valid values.', () => {
             bandCColors.forEach(function(color) {
-                let oCalculator = new OhmValueCalculator(undefined, undefined, color);
-                expect(oCalculator.bandCColor).toBe(color);
+                if (color !== "None") {
+                    let oCalculator = new OhmValueCalculator(undefined, undefined, color);
+                    expect(oCalculator.bandCColor).toBe(color);
+                }
             });
         });
-
         it('Test throw exception on constructor with invalid bandCColors.', () => {
             invalidColors.forEach(function(color) {
                 expect(
@@ -119,7 +93,6 @@ describe('OhmValueCalculator class tests.', () => {
                 expect(oCalculator.bandDColor).toBe(color);
             });
         });
-
         it('Test throw exception on constructor with invalid bandDColors.', () => {
             invalidColors.forEach(function(color) {
                 expect(

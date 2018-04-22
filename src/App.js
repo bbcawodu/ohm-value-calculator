@@ -2,38 +2,8 @@ import React, { Component } from 'react';
 import resistor_pic from './transparent_resistor.png';
 import './App.css';
 import OhmValueCalculator from './OhmCalculatorClass';
+import {bandAColors, bandBColors, bandCColors, bandDColors} from './constants';
 
-
-var bandAColors = [
-    'None',
-    'black',
-    'brown',
-    'red',
-    'orange',
-    'yellow',
-    'green',
-    'blue',
-    'violet',
-    'gray',
-    'white'
-];
-
-var bandBColors = bandAColors.slice();
-
-var bandCColors = bandBColors.concat(['pink', 'silver', 'gold']);
-
-var bandDColors = [
-    null,
-    'silver',
-    'gold',
-    'brown',
-    'red',
-    'yellow',
-    'green',
-    'blue',
-    'violet',
-    'gray'
-];
 
 class App extends Component {
     constructor(props) {
@@ -46,7 +16,7 @@ class App extends Component {
             bandAColor: "None",
             bandBColor: "None",
             bandCColor: "None",
-            bandDColor: null
+            bandDColor: ""
         };
     }
 
@@ -83,10 +53,34 @@ class App extends Component {
             </header>
             <img src={resistor_pic} className="resistor_pic" alt="resistor_pic" />
             <div>
-                <select value={this.state.bandAColor} onChange={(e) => this.handle_bandA_change(e)}>{bandAColors.map(color => <option value={color}>{color}</option>)}</select>
-                <select value={this.state.bandBColor} onChange={(e) => this.handle_bandB_change(e)}>{bandBColors.map(color => <option value={color}>{color}</option>)}</select>
-                <select value={this.state.bandCColor} onChange={(e) => this.handle_bandC_change(e)}>{bandCColors.map(color => <option value={color}>{color}</option>)}</select>
-                <select value={this.state.bandDColor} onChange={(e) => this.handle_bandD_change(e)}>{bandDColors.map(color => <option value={color}>{color}</option>)}</select>
+                <select value={this.state.bandAColor} onChange={(e) => this.handle_bandA_change(e)}>
+                    {
+                        bandAColors.map(
+                            color => <option value={color} key={color}>{color}</option>
+                        )
+                    }
+                </select>
+                <select value={this.state.bandBColor} onChange={(e) => this.handle_bandB_change(e)}>
+                    {
+                        bandBColors.map(
+                            color => <option value={color} key={color}>{color}</option>
+                        )
+                    }
+                </select>
+                <select value={this.state.bandCColor} onChange={(e) => this.handle_bandC_change(e)}>
+                    {
+                        bandCColors.map(
+                            color => <option value={color} key={color}>{color}</option>
+                        )
+                    }
+                </select>
+                <select value={this.state.bandDColor} onChange={(e) => this.handle_bandD_change(e)}>
+                    {
+                        bandDColors.map(
+                            color => <option value={color} key={color}>{color}</option>
+                        )
+                    }
+                </select>
             </div>
             <p className="App-intro">
               First, please choose colors for the all the resistor bands.
@@ -109,6 +103,7 @@ class App extends Component {
     let bandBColor = this.state.bandBColor;
     let bandCColor = this.state.bandCColor;
     let bandDColor = this.state.bandDColor;
+    if (bandDColor === ""){bandDColor = null;}
 
     try {
         let ohm_calculator = this.state.ohm_calculator;

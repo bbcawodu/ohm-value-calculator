@@ -37,15 +37,16 @@ This is a ReactJS/NodeJS application that is hosted on Heroku. To install Heroku
     }
     ```
     
-    - [OhmCalculatorClass.js](src/OhmCalculatorClass.js)
+    - Implementation: [OhmCalculatorClass.js](src/OhmCalculatorClass.js)
 
 - Using your favorite unit test framework, write the unit tests you feel are necessary to adequately test the code you wrote as your answer to step one.
-    - [OhmCalculatorClass.test.js](src/OhmCalculatorClass.test.js)
+    - Implementation: [OhmCalculatorClass.test.js](src/OhmCalculatorClass.test.js)
     - run ```npm test``` to run all application tests
 
 - Create a .NET MVC or Reactjs web interface that will allow someone to use the calculator you created in step one.
-    - [App.js](src/App.js)
-    - [Resistor Ohm Value Calculator](https://resistor-ohm-calculator.herokuapp.com/)
+    - Implementation: [App.js](src/App.js)
+    - run ```npm start``` to start a local version of the application
+    - Live Version: [Resistor Ohm Value Calculator](https://resistor-ohm-calculator.herokuapp.com/)
 
 ## Contributing
 

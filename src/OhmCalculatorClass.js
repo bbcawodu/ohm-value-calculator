@@ -1,39 +1,4 @@
-const digit_codes = {
-    'black': 0,
-    'brown': 1,
-    'red': 2,
-    'orange': 3,
-    'yellow': 4,
-    'green': 5,
-    'blue': 6,
-    'violet': 7,
-    'gray': 8,
-    'white': 9
-};
-
-
-const multiplier_codes = Object.assign(
-    {
-        'pink': -3,
-        'silver': -2,
-        'gold': -1
-    },
-    digit_codes
-);
-
-
-const tolerance_codes = {
-    null: 20,
-    'silver': 10,
-    'gold': 5,
-    'brown': 1,
-    'red': 2,
-    'yellow': 5,
-    'green': .5,
-    'blue': .25,
-    'violet': .1,
-    'gray': .05
-};
+import {digit_codes, multiplier_codes, tolerance_codes} from './constants';
 
 
 function validateBandAColor(bandAColor, bandADomain){
