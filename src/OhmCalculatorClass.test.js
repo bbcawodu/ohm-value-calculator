@@ -50,14 +50,14 @@ let invalidInputs = [
 
 describe('OhmValueCalculator class tests.', () => {
     describe('Constructor tests.', () => {
-        test('Test constructor with a bandAColor of all possible valid values.', () => {
+        it('Test constructor with a bandAColor of all possible valid values.', () => {
             bandAColors.forEach(function(color) {
                 let oCalculator = new OhmValueCalculator(color);
                 expect(oCalculator.bandAColor).toBe(color);
             });
         });
 
-        test('Test throw exception on constructor with invalid bandAColors.', () => {
+        it('Test throw exception on constructor with invalid bandAColors.', () => {
             invalidColors.forEach(function(color) {
                 expect(
                     () => {let oCalculator = new OhmValueCalculator(color);}
@@ -71,14 +71,14 @@ describe('OhmValueCalculator class tests.', () => {
             });
         });
 
-        test('Test constructor with a bandBColor of all possible valid values.', () => {
+        it('Test constructor with a bandBColor of all possible valid values.', () => {
             bandBColors.forEach(function(color) {
                 let oCalculator = new OhmValueCalculator(undefined, color);
                 expect(oCalculator.bandBColor).toBe(color);
             });
         });
 
-        test('Test throw exception on constructor with invalid bandBColors.', () => {
+        it('Test throw exception on constructor with invalid bandBColors.', () => {
             invalidColors.forEach(function(color) {
                 expect(
                     () => {let oCalculator = new OhmValueCalculator(undefined, color);}
@@ -92,14 +92,14 @@ describe('OhmValueCalculator class tests.', () => {
             });
         });
 
-        test('Test constructor with a bandCColor of all possible valid values.', () => {
+        it('Test constructor with a bandCColor of all possible valid values.', () => {
             bandCColors.forEach(function(color) {
                 let oCalculator = new OhmValueCalculator(undefined, undefined, color);
                 expect(oCalculator.bandCColor).toBe(color);
             });
         });
 
-        test('Test throw exception on constructor with invalid bandCColors.', () => {
+        it('Test throw exception on constructor with invalid bandCColors.', () => {
             invalidColors.forEach(function(color) {
                 expect(
                     () => {let oCalculator = new OhmValueCalculator(undefined, undefined, color);}
@@ -113,14 +113,14 @@ describe('OhmValueCalculator class tests.', () => {
             });
         });
 
-        test('Test constructor with a bandDColor of all possible valid values.', () => {
+        it('Test constructor with a bandDColor of all possible valid values.', () => {
             bandDColors.forEach(function(color) {
                 let oCalculator = new OhmValueCalculator(undefined, undefined, undefined, color);
                 expect(oCalculator.bandDColor).toBe(color);
             });
         });
 
-        test('Test throw exception on constructor with invalid bandDColors.', () => {
+        it('Test throw exception on constructor with invalid bandDColors.', () => {
             invalidColors.forEach(function(color) {
                 expect(
                     () => {let oCalculator = new OhmValueCalculator(undefined, undefined, undefined, color);}
@@ -136,7 +136,7 @@ describe('OhmValueCalculator class tests.', () => {
     });
 
     describe('calculateOhmValue method tests.', () => {
-        test('Test using method with some possible valid values.', () => {
+        it('Test using method with some possible valid values.', () => {
             let oCalculator = new OhmValueCalculator();
             let resistance = oCalculator.calculateOhmValue('yellow', 'violet', 'red', 'gold');
             expect(resistance.resistance_value).toBe(4700);
@@ -163,7 +163,7 @@ describe('OhmValueCalculator class tests.', () => {
             expect(resistance.tolerance_value).toBe(20);
         });
 
-        test('Test throw exception on method with some possible invalid values.', () => {
+        it('Test throw exception on method with some possible invalid values.', () => {
             let oCalculator = new OhmValueCalculator();
             let resistance;
 
