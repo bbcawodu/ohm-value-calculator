@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import resistor_pic from './transparent_resistor.png';
 import './App.css';
 
 class App extends Component {
@@ -7,11 +7,11 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+            <h1 className="App-title">Resistor Ohm Calculator</h1>
+          <img src={resistor_pic} className="resistor_pic" alt="resistor_pic" />
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          First, please choose colors for the all the resistor bands.
         </p>
       </div>
     );
