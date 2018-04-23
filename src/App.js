@@ -59,15 +59,32 @@ class App extends Component {
       }
       else if (this.state.err_message !== null) {resistance_message = <div className="Error-message">{this.state.err_message}</div>;}
       else  {resistance_message = null;}
+
+      let bandAColor = {"background-color": "transparent"};
+      if (this.state.bandAColor !== "None") {bandAColor = {"background-color": this.state.bandAColor};}
+      let bandBColor = {"background-color": "transparent"};
+      if (this.state.bandBColor !== "None") {bandBColor = {"background-color": this.state.bandBColor};}
+      let bandCColor = {"background-color": "transparent"};
+      if (this.state.bandCColor !== "None") {bandCColor = {"background-color": this.state.bandCColor};}
+      let bandDColor = {"background-color": "transparent"};
+      if (this.state.bandDColor !== "") {bandDColor = {"background-color": this.state.bandDColor};}
+
         return (
           <div className="App">
             <header className="App-header">
                 <h1 className="App-title">Resistor Ohms(Resistance) Calculator</h1>
             </header>
             <div className="resistor_pic_container">
-            <img src={resistor_pic} className="resistor_pic" alt="resistor_pic" />
+                <img src={resistor_pic} className="resistor_pic" alt="resistor_pic" />
+                <div className="band-container">
+                    <div className="bandADiv" style={bandAColor}></div>
+                    <div className="bandBDiv" style={bandBColor}></div>
+                    <div className="bandCDiv" style={bandCColor}></div>
+                    <div className="bandDDiv" style={bandDColor}></div>
+                </div>
+
             </div>
-            <div>
+            <div className="optionsContainer">
                 <select value={this.state.bandAColor} onChange={(e) => this.handle_bandA_change(e)} className="bandButton">
                     {
                         bandAColors.map(
@@ -96,7 +113,11 @@ class App extends Component {
                         )
                     }
                 </select>
-            </div>
+                <br></br>
+                <div className="bandLabelA">Band A</div>
+                <div className="bandLabelB">Band B</div>
+                <div className="bandLabelC">Band C</div>
+                <div className="bandLabelD">Band D</div>
             <br></br>
             <div className="Calculator-instructions">
               First, please choose colors for the all the resistor bands.
@@ -104,6 +125,7 @@ class App extends Component {
               <button onClick={() => this.calculate_resistance()}>Calculate Resistance</button>
               <br></br>
               {resistance_message}
+            </div>
           </div>
         );
   }

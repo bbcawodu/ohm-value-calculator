@@ -11,14 +11,104 @@
   background-color: white;
 }
 
+.band-container {
+  position: relative;
+  background-color: transparent;
+  height: 0;
+}
+
+.band-container .bandADiv {
+  /*float: left;*/
+  /*display: inline-block;*/
+  /*background-color: red;*/
+  /*height: 100%;*/
+  width: 25px;
+  height: 130px;
+  display: inline-block;
+  position: relative;
+  left: -55px;
+  top: -167px;
+}
+
+.band-container .bandBDiv {
+  /*float: left;*/
+  /*display: inline-block;*/
+  /*background-color: blue;*/
+  /*height: 100%;*/
+  width: 25px;
+  height: 115px;
+  display: inline-block;
+  position: relative;
+  left: -39px;
+  top: -175px;
+}
+
+.band-container .bandCDiv {
+  /*float: left;*/
+  /*display: inline-block;*/
+  /*background-color: orange;*/
+  /*height: 100%;*/
+  width: 25px;
+  height: 109px;
+  display: inline-block;
+  position: relative;
+  left: -26px;
+  top: -177px;
+}
+
+.band-container .bandDDiv {
+  /*float: left;*/
+  /*display: inline-block;*/
+  /*background-color: yellow;*/
+  /*height: 100%;*/
+  width:25px;
+  height: 115px;
+  display: inline-block;
+  position: relative;
+  left: 27.5px;
+  top: -175px;
+}
+
 .resistor_pic {
+  position: relative;
   border-radius: 10px;
   max-width: 100%;
   max-height: 100%;
+  z-index: 1000;
+}
+
+.optionsContainer {
+  position: relative;
+  display: inline-block;
+  top: -125px;
 }
 
 .bandButton {
   display: inline-block;
+}
+
+.bandLabelA {
+  position: relative;
+  display: inline;
+  left: -20px;
+}
+
+.bandLabelB {
+  position: relative;
+  display: inline;
+  left: -5px;
+}
+
+.bandLabelC {
+  position: relative;
+  display: inline;
+  left: 10px;
+}
+
+.bandLabelD {
+  position: relative;
+  display: inline;
+  left: 23px;
 }
 
 .App-header {

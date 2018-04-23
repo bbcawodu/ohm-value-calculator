@@ -1,34 +1,6 @@
 import {digit_codes, multiplier_codes, tolerance_codes} from './constants';
 
 
-function validateBandAColor(bandAColor, bandADomain){
-    if (bandAColor !== undefined && typeof bandAColor !== "string") {throw new Error("bandAColor is not a string");}
-    if (bandAColor) {bandAColor = bandAColor.toLowerCase();}
-    if (bandAColor && !(bandAColor in bandADomain)) {throw new Error("bandAColor is not a valid color choice");}
-}
-
-
-function validateBandBColor(bandBColor, bandBDomain){
-    if (bandBColor !== undefined && typeof bandBColor !== "string") {throw new Error("bandBColor is not a string");}
-    if (bandBColor) {bandBColor = bandBColor.toLowerCase();}
-    if (bandBColor && !(bandBColor in bandBDomain)) {throw new Error("bandBColor is not a valid color choice");}
-}
-
-
-function validateBandCColor(bandCColor, bandCDomain){
-    if (bandCColor !== undefined && typeof bandCColor !== "string") {throw new Error("bandCColor is not a string");}
-    if (bandCColor) {bandCColor = bandCColor.toLowerCase();}
-    if (bandCColor && !(bandCColor in bandCDomain)) {throw new Error("bandCColor is not a valid color choice");}
-}
-
-
-function validateBandDColor(bandDColor, bandDDomain){
-    if (bandDColor !== undefined && bandDColor !== null && typeof bandDColor !== "string") {throw new Error("bandDColor is not a string");}
-    if (bandDColor) {bandDColor = bandDColor.toLowerCase();}
-    if (bandDColor && !(bandDColor in bandDDomain)) {throw new Error("bandDColor is not a valid color choice");}
-}
-
-
 function OhmValueCalculator(bandAColor=undefined, bandBColor=undefined, bandCColor=undefined, bandDColor=undefined){
     this.bandADomain = digit_codes;
     this.bandBDomain = digit_codes;
@@ -82,5 +54,32 @@ OhmValueCalculator.prototype.calculateOhmValue = function (bandAColor=undefined,
     );
 };
 
+
+function validateBandAColor(bandAColor, bandADomain){
+    if (bandAColor !== undefined && typeof bandAColor !== "string") {throw new Error("bandAColor is not a string");}
+    if (bandAColor) {bandAColor = bandAColor.toLowerCase();}
+    if (bandAColor && !(bandAColor in bandADomain)) {throw new Error("bandAColor is not a valid color choice");}
+}
+
+
+function validateBandBColor(bandBColor, bandBDomain){
+    if (bandBColor !== undefined && typeof bandBColor !== "string") {throw new Error("bandBColor is not a string");}
+    if (bandBColor) {bandBColor = bandBColor.toLowerCase();}
+    if (bandBColor && !(bandBColor in bandBDomain)) {throw new Error("bandBColor is not a valid color choice");}
+}
+
+
+function validateBandCColor(bandCColor, bandCDomain){
+    if (bandCColor !== undefined && typeof bandCColor !== "string") {throw new Error("bandCColor is not a string");}
+    if (bandCColor) {bandCColor = bandCColor.toLowerCase();}
+    if (bandCColor && !(bandCColor in bandCDomain)) {throw new Error("bandCColor is not a valid color choice");}
+}
+
+
+function validateBandDColor(bandDColor, bandDDomain){
+    if (bandDColor !== undefined && bandDColor !== null && typeof bandDColor !== "string") {throw new Error("bandDColor is not a string");}
+    if (bandDColor) {bandDColor = bandDColor.toLowerCase();}
+    if (bandDColor && !(bandDColor in bandDDomain)) {throw new Error("bandDColor is not a valid color choice");}
+}
 
 export default OhmValueCalculator;
