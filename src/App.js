@@ -37,44 +37,49 @@ class App extends Component {
     }
 
   render() {
-      let resistance_string;
+      let resistance_message;
       if (this.state.current_resistance !== null) {
-          resistance_string = "" +
+          let resistance_string = "Resistance of Resistor = " +
               this.state.current_resistance.resistance_value +
               " +-" +
               this.state.current_resistance.tolerance_value +
               "% ohms.";
+
+          resistance_message = <div className="Resistance-message">{resistance_string}</div>;
       }
-      else {resistance_string = null;}
+      else if (this.state.err_message !== null) {resistance_message = <div className="Error-message">{this.state.err_message}</div>;}
+      else  {resistance_message = null;}
         return (
           <div className="App">
             <header className="App-header">
                 <h1 className="App-title">Resistor Ohms(Resistance) Calculator</h1>
             </header>
+            <div className="resistor_pic_container">
             <img src={resistor_pic} className="resistor_pic" alt="resistor_pic" />
+            </div>
             <div>
-                <select value={this.state.bandAColor} onChange={(e) => this.handle_bandA_change(e)}>
+                <select value={this.state.bandAColor} onChange={(e) => this.handle_bandA_change(e)} className="bandButton">
                     {
                         bandAColors.map(
                             color => <option value={color} key={color}>{color}</option>
                         )
                     }
                 </select>
-                <select value={this.state.bandBColor} onChange={(e) => this.handle_bandB_change(e)}>
+                <select value={this.state.bandBColor} onChange={(e) => this.handle_bandB_change(e)} className="bandButton">
                     {
                         bandBColors.map(
                             color => <option value={color} key={color}>{color}</option>
                         )
                     }
                 </select>
-                <select value={this.state.bandCColor} onChange={(e) => this.handle_bandC_change(e)}>
+                <select value={this.state.bandCColor} onChange={(e) => this.handle_bandC_change(e)} className="bandButton">
                     {
                         bandCColors.map(
                             color => <option value={color} key={color}>{color}</option>
                         )
                     }
                 </select>
-                <select value={this.state.bandDColor} onChange={(e) => this.handle_bandD_change(e)}>
+                <select value={this.state.bandDColor} onChange={(e) => this.handle_bandD_change(e)} className="bandButton">
                     {
                         bandDColors.map(
                             color => <option value={color} key={color}>{color}</option>
@@ -82,18 +87,13 @@ class App extends Component {
                     }
                 </select>
             </div>
-            <p className="App-intro">
+            <br></br>
+            <div className="Calculator-instructions">
               First, please choose colors for the all the resistor bands.
-            </p>
-              <br></br>
+            </div>
               <button onClick={() => this.calculate_resistance()}>Calculate Resistance</button>
               <br></br>
-              <p className="Error-message">
-                  {this.state.err_message}
-              </p>
-              <p className="App-intro">
-                  Resistance of Resistor = {resistance_string}
-              </p>
+              {resistance_message}
           </div>
         );
   }
@@ -119,7 +119,8 @@ class App extends Component {
     catch (err) {
         this.setState(
             {
-                err_message: err.message
+                err_message: err.message,
+                current_resistance: null
             }
         )
     }
