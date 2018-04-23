@@ -60,14 +60,17 @@ class App extends Component {
       else if (this.state.err_message !== null) {resistance_message = <div className="Error-message">{this.state.err_message}</div>;}
       else  {resistance_message = null;}
 
-      let bandAColor = {"background-color": "transparent"};
-      if (this.state.bandAColor !== "None") {bandAColor = {"background-color": this.state.bandAColor};}
-      let bandBColor = {"background-color": "transparent"};
-      if (this.state.bandBColor !== "None") {bandBColor = {"background-color": this.state.bandBColor};}
-      let bandCColor = {"background-color": "transparent"};
-      if (this.state.bandCColor !== "None") {bandCColor = {"background-color": this.state.bandCColor};}
-      let bandDColor = {"background-color": "transparent"};
-      if (this.state.bandDColor !== "") {bandDColor = {"background-color": this.state.bandDColor};}
+      let bandAColor = {"backgroundColor": "transparent"};
+      if (this.state.bandAColor !== "None") {bandAColor["backgroundColor"] = this.state.bandAColor;}
+
+      let bandBColor = {"backgroundColor": "transparent"};
+      if (this.state.bandBColor !== "None") {bandBColor["backgroundColor"] = this.state.bandBColor;}
+
+      let bandCColor = {"backgroundColor": "transparent"};
+      if (this.state.bandCColor !== "None") {bandCColor["backgroundColor"] = this.state.bandCColor;}
+
+      let bandDColor = {"backgroundColor": "transparent"};
+      if (this.state.bandDColor !== "") {bandDColor["backgroundColor"] = this.state.bandDColor;}
 
         return (
           <div className="App">
