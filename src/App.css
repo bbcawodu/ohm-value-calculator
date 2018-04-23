@@ -7,7 +7,7 @@
   border-radius: 10px;
   max-width: 500px;
   max-height: 165px;
-  margin: 0 auto; /*centers div*/
+  margin: 0 auto;
   background-color: white;
 }
 
@@ -34,11 +34,17 @@
 
 .Resistance-message {
   font-size: large;
-  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  height: auto; /*stretch with more data on page*/
+  margin: 0 auto;
 }
 
 .Error-message {
   color: yellow;
   font-size: large;
-  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  height: auto; /*stretch with more data on page*/
+  margin: 0 auto;
 }
