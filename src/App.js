@@ -39,11 +39,21 @@ class App extends Component {
   render() {
       let resistance_message;
       if (this.state.current_resistance !== null) {
-          let resistance_string = "Resistance of Resistor = " +
-              this.state.current_resistance.resistance_value +
+          let resistance_string = "Resistance of Resistor is " +
+              this.state.current_resistance.resistance_value;
+          if (this.state.current_resistance.tolerance_value) {
+              resistance_string +=
               " +-" +
               this.state.current_resistance.tolerance_value +
-              "% ohms.";
+              "% ohms, or between " +
+              Number((this.state.current_resistance.resistance_value - this.state.current_resistance.resistance_value*this.state.current_resistance.tolerance_value*.01).toFixed(8)) +
+              " and " +
+              Number((this.state.current_resistance.resistance_value + this.state.current_resistance.resistance_value*this.state.current_resistance.tolerance_value*.01).toFixed(8)) +
+              " ohms.";
+          }
+          else {
+              resistance_string += " ohms";
+          }
 
           resistance_message = <div className="Resistance-message">{resistance_string}</div>;
       }
